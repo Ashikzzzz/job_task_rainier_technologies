@@ -17,4 +17,8 @@ type ICourseSchedule = {
   classTime: string;
 };
 
+export type ICourseFilters = {
+  searchTerm?: string;
+};
+
 export type CourseModel = Model<ICourse, Record<string, unknown>>;
