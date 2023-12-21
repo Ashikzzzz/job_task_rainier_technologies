@@ -78,8 +78,16 @@ const getSingleCourseData = async (id: string): Promise<ICourse | null> => {
   return result;
 };
 
+// delete a course
+
+const deleteCourseData = async (id: string) => {
+  const result = await Course.findByIdAndDelete(id);
+  return result;
+};
+
 export const courseService = {
   createCourse,
   getAllCourse,
   getSingleCourseData,
+  deleteCourseData,
 };

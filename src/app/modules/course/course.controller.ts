@@ -39,7 +39,35 @@ const getAllCourse = catchAsync(async (req: Request, res: Response) => {
   // next();
 });
 
+// get a single course
+const getSingleCourseData = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await courseService.getSingleCourseData(id);
+
+  responseForData.sendResponseForCreate<ICourse>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: ' Getting Successful',
+    data: result,
+  });
+});
+
+// delete course
+
+const deleteTravelData = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await courseService.deleteCourseData(id);
+  responseForData.sendResponseForCreate(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: ' Delete Successful',
+    data: result,
+  });
+});
+
 export const courseController = {
   createCourse,
   getAllCourse,
+  getSingleCourseData,
+  deleteTravelData,
 };
