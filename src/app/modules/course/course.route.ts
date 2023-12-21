@@ -15,4 +15,7 @@ router.get('/:id/get-single-course', courseController.getSingleCourseData);
 // delete a course
 router.delete('/:id/delete-course', courseController.deleteTravelData);
 
+//update a course
+router.patch('/:id/update-course', courseController.updateCourseData);
+
 export const courseRouter = router;

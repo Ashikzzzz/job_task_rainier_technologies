@@ -65,9 +65,24 @@ const deleteTravelData = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+// update course
+const updateCourseData = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const travelData = req.body;
+  const result = await courseService.updateCourseData(id, travelData);
+
+  responseForData.sendResponseForCreate<ICourse>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Course data Update Successful',
+    data: result,
+  });
+});
+
 export const courseController = {
   createCourse,
   getAllCourse,
   getSingleCourseData,
   deleteTravelData,
+  updateCourseData,
 };

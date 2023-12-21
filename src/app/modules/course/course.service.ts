@@ -85,9 +85,16 @@ const deleteCourseData = async (id: string) => {
   return result;
 };
 
+// update a course
+const updateCourseData = async (id: string, payload: Partial<ICourse>) => {
+  const result = await Course.findOneAndUpdate({ _id: id }, { $set: payload });
+  return result;
+};
+
 export const courseService = {
   createCourse,
   getAllCourse,
   getSingleCourseData,
   deleteCourseData,
+  updateCourseData,
 };
